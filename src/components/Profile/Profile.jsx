@@ -1,18 +1,22 @@
 import React from 'react';
 import s from './Profile.module.css';
 import MyPosts from "./MyPosts/MyPosts";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
-const Profile = () => {
-    return <div>
-    <div>
-      <img src='https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350' />
-    </div>
-    <div>
-      ava + description
-    </div>
-        <MyPosts />
-  </div>
+const posts = [
+    {id: 1, message: "Hi, how are you?", likesCount: '11'},
+    {id: 1, message: "It's my first post", likesCount: '15'},
+];
+
+
+const Profile = (props) => {
+    return (
+        <div>
+            <ProfileInfo/>
+            <MyPosts data = {posts}/>
+        </div>
+    )
 };
 
 export default Profile;
