@@ -8,7 +8,7 @@ const Profile = ({dataProfile}) => {
     return (
     <div>
             <ProfileInfo/>
-            <MyPosts dat={dataProfile}/>
+            <MyPosts dataPosts={dataProfile}/>
         </div>
     )
 };

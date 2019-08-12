@@ -10,18 +10,16 @@ import News from './components/News/News';
 import Settings from "./components/Settings/Settings";
 
 
-const App = (props) => {
-    const {dataProfile} = props;
-    const {dataDialogs} = props;
-
+const App = ({state}) => {
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header/>
-                <Navbar/>
+                <Navbar dataNavbar = {state.sidebar}/>
                 <div className="app-wrapper-content">
-                    <Route exact path = "/dialogs" render={() => <Dialogs dataDialogs = {dataDialogs}/>}/>
-                    <Route path="/profile" render={() => <Profile dataProfile = {dataProfile}/>}/>
+                    <Route exact path = "/dialogs" render={() =>
+                        <Dialogs dataDialogs = {state.dialogsPage}/>}/>
+                    <Route path="/profile" render={() => <Profile dataProfile = {state.profilePage}/>}/>
                     <Route path="/music" render={() => <Music/>}/>
                     <Route path="/news" render={() => <News/>}/>
                     <Route path="/settings" render={() => <Settings/>}/>

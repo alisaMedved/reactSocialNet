@@ -5,7 +5,6 @@ import DialogItem from "./DialogItem/DialogItem";
 
 
 const Dialogs = ({dataDialogs}) => {
-
     const dialogsElements = dataDialogs.dialogs
         .map(d => <DialogItem key={d.id} name={d.name} id={d.id}/>);
 

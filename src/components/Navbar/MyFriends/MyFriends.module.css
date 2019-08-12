@@ -1,0 +1,19 @@
+.MyFriendsBlock{
+display: grid;
+}
+
+.MyFriendsBlock h3 {
+    text-align: center;
+}
+
+.MyFriends{
+   display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+
+}
+
+.item {
+
+}
+

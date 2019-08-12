@@ -3,9 +3,9 @@ import Post from './Post/Post';
 import s from "./MyPosts.module.css";
 
 
-const MyPosts = ({dat}) => {
-    const postsElements = dat
-        .map(p => <Post message={p.message} likesCount={p.likesCount}/>);
+const MyPosts = ({dataPosts}) => {
+    const postsElements = dataPosts.posts
+        .map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>);
 
     return (
         <div className={s.postsBlock}>
