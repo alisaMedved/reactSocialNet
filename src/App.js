@@ -10,21 +10,24 @@ import News from './components/News/News';
 import Settings from "./components/Settings/Settings";
 
 
-const App = () => {
+const App = (props) => {
+    const {dataProfile} = props;
+    const {dataDialogs} = props;
+
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar/>
                 <div className="app-wrapper-content">
-                    <Route exact path = "/dialogs" render={() => <Dialogs/>}/>
-                    <Route path="/profile" render={() => <Profile/>}/>
+                    <Route exact path = "/dialogs" render={() => <Dialogs dataDialogs = {dataDialogs}/>}/>
+                    <Route path="/profile" render={() => <Profile dataProfile = {dataProfile}/>}/>
                     <Route path="/music" render={() => <Music/>}/>
                     <Route path="/news" render={() => <News/>}/>
                     <Route path="/settings" render={() => <Settings/>}/>
                 </div>
             </div>
         </BrowserRouter>);
-}
+};
 
 export default App;

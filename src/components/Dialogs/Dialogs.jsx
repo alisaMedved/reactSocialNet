@@ -3,31 +3,16 @@ import s from './Dialogs.module.css';
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
 
-const dialogs = [
-    {name: "Dimych", id: '1'},
-    {name: "Andrew", id: '2'},
-    {name: "Sasha", id: '3'},
-    {name: "Sveta", id: '4'},
-    {name: "Valera", id: '5'},
-    {name: "Viktor", id: '6'}
-];
 
-const messages = [
-    {id: '1', message: "Hi"},
-    {id: '2', message: "How is yor it-kra?"},
-    {id: '3', message: "LA"},
-    {id: '4', message: "LA11"},
-    {id: '5', message: "LA23"},
-    {id: '6', message: "LA45"}
-];
+const Dialogs = ({dataDialogs}) => {
 
-const Dialogs = (props) => {
+    console.log(dataDialogs.messages);
 
-    const dialogsElements = dialogs
-        .map(d => <DialogItem name={d.name} id={d.id}/>);
+    const dialogsElements = dataDialogs.dialogs
+        .map(d => <DialogItem key={d.id} name={d.name} id={d.id}/>);
 
-    const messagesElements = messages
-        .map(m => <Message message={m.message}/>);
+    const messagesElements = dataDialogs.messages
+        .map(m => <Message key={m.id} message={m.message}/>);
 
     return (
         <div className={s.dialogs}>
