@@ -3,16 +3,17 @@ import Post from './Post/Post';
 import s from "./MyPosts.module.css";
 
 
-const MyPosts = ({dataPosts}) => {
-    const postsElements = dataPosts.posts
+const MyPosts = (props) => {
+    const postsElements = props.dataPosts.posts
         .map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>);
 
 
     const newPostElement = React.createRef();
 
-    const addPost = () => {
+    const addNewPost = () => {
         let text = newPostElement.current.value;
-        alert(text);
+        props.addPost(text);
+        newPostElement.current.value = "";
     };
 
     // const addPost = () => {
@@ -29,7 +30,7 @@ const MyPosts = ({dataPosts}) => {
                     <textarea ref={newPostElement}></textarea>
                 </div>
                 <div>
-                    <button onClick = {addPost}>Add posts</button>
+                    <button onClick = {addNewPost}>Add posts</button>
                 </div>
             </div>
             <div className={s.posts}>

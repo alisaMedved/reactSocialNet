@@ -1,17 +1,28 @@
 .dialogs {
-display: grid;
+    display: grid;
     grid-template-columns: 2fr 10fr;
+    grid-template-rows: 7fr 2fr;
+    grid-row-gap: 15px;
     justify-items: stretch;
+    align-items: start;
+    grid-template-areas:
+            "d m"
+            ". n";
 }
 
 .dialogsItems {
     justify-self: center;
+    grid-area: d;
 }
 
 
 .messages {
+    grid-area: m;
 }
 
-
+.newMessage {
+    grid-area: n;
+    justify-self: center;
+}
 
 

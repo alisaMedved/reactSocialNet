@@ -11,6 +11,13 @@ const Dialogs = ({dataDialogs}) => {
     const messagesElements = dataDialogs.messages
         .map(m => <Message key={m.id} message={m.message}/>);
 
+    const newMessage = React.createRef();
+
+    const newMessageText = () => {
+        let text = newMessage.current.value;
+        alert(text);
+    };
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
@@ -19,6 +26,10 @@ const Dialogs = ({dataDialogs}) => {
             </div>
             <div className={s.messages}>
                 {messagesElements}
+            </div>
+            <div className={s.newMessage}>
+                <textarea ref={newMessage}></textarea>
+                <button onClick={newMessageText}>send message</button>
             </div>
         </div>
     );

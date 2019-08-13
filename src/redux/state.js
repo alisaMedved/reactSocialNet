@@ -1,3 +1,5 @@
+import {rendEntireTree} from "./../render";
+
 const state = {
     profilePage: {
         posts: [
@@ -30,6 +32,18 @@ const state = {
             {id: "3", name: "Sveta", avatarkaSRC: "https://cdn.freelance.ru/img/portfolio/pics/00/37/9B/3644384.jpg?mt=57607de1" },
         ],
     }
+};
+
+export const addPost = (postMessage) => {
+    const newPost = {
+        id: "3",
+        message: postMessage,
+        likesCount: "0",
+    };
+
+    state.profilePage.posts.push(newPost);
+    rendEntireTree(state);
+
 };
 
 export default state;
