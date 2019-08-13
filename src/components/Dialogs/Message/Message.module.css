@@ -8,6 +8,7 @@
     width: 55%;
     align-items: center;
     margin-top: 15px;
+    flex-direction: row-reverse;
 }
 
 .ava {
@@ -22,5 +23,5 @@
 }
 
 .__other {
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
