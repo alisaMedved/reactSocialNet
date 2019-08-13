@@ -14,6 +14,7 @@ const Dialogs = ({dataDialogs}) => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
+                <h5>DIALOGS</h5>
                 {dialogsElements}
             </div>
             <div className={s.messages}>

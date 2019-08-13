@@ -1,23 +1,17 @@
 .dialogs {
 display: grid;
     grid-template-columns: 2fr 10fr;
+    justify-items: stretch;
 }
 
 .dialogsItems {
-    padding: 10px;
+    justify-self: center;
 }
 
-.dialog__link {
-    color: white;
-}
 
 .messages {
-    padding: 10px;
-
 }
 
-.messages .message {
-    color: white;
-}
+
 
 
