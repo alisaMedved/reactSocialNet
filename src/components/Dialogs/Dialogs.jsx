@@ -4,18 +4,22 @@ import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
 
 
-const Dialogs = ({dataDialogs}) => {
-    const dialogsElements = dataDialogs.dialogs
+const Dialogs = (props) => {
+    const dialogsElements = props.dataDialogs.dialogs
         .map(d => <DialogItem key={d.id} name={d.name} id={d.id}/>);
 
-    const messagesElements = dataDialogs.messages
+    const messagesElements = props.dataDialogs.messages
         .map(m => <Message key={m.id} message={m.message}/>);
 
-    const newMessage = React.createRef();
+    const newMessageElement = React.createRef();
 
-    const newMessageText = () => {
-        let text = newMessage.current.value;
-        alert(text);
+    const addNewMessage = () => {
+        props.addMessage();
+    };
+
+    const onMessageChange = () => {
+        let textMes = newMessageElement.current.value;
+        props.addMessageText(textMes);
     };
 
     return (
@@ -28,8 +32,8 @@ const Dialogs = ({dataDialogs}) => {
                 {messagesElements}
             </div>
             <div className={s.newMessage}>
-                <textarea ref={newMessage}></textarea>
-                <button onClick={newMessageText}>send message</button>
+                <textarea ref={newMessageElement} onChange={onMessageChange} value={props.dataDialogs.newMessageText} />
+                <button onClick={addNewMessage}>send message</button>
             </div>
         </div>
     );

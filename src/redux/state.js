@@ -24,7 +24,8 @@ const state = {
             {id: '4', message: "LA11"},
             {id: '5', message: "LA23"},
             {id: '6', message: "LA45"}
-        ]
+        ],
+        newMessageText: "",
     },
     sidebar: {
         friends: [
@@ -52,6 +53,22 @@ export const addPost = () => {
 export const addPostText = (text) => {
     state.profilePage.newPostText = text;
     rendEntireTree(state);
+};
+
+export const addMessage = () => {
+    const newMessage = {
+        id: "7",
+        message: state.dialogsPage.newMessageText
+    };
+    state.dialogsPage.messages.push(newMessage);
+    state.dialogsPage.newMessageText = "";
+    rendEntireTree(state);
+};
+
+export const addMessageText = (textMes) => {
+state.dialogsPage.newMessageText = textMes;
+    rendEntireTree(state);
+
 };
 
 export default state;
