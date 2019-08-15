@@ -43,7 +43,6 @@ export const addPost = (postMessage) => {
 
     state.profilePage.posts.push(newPost);
     rendEntireTree(state);
-
 };
 
 export default state;

@@ -16,18 +16,13 @@ const MyPosts = (props) => {
         newPostElement.current.value = "";
     };
 
-    // const addPost = () => {
-    //     const N = document.getElementById("needText");
-    //   alert(N.value);
-    // };
 
     return (
         <div className={s.postsBlock}>
            <h3>My posts</h3>
             <div>
                 <div>
-                    {/*<textarea id = {"needText"}></textarea>*/}
-                    <textarea ref={newPostElement}></textarea>
+                    <textarea ref = {newPostElement}></textarea>
                 </div>
                 <div>
                     <button onClick = {addNewPost}>Add posts</button>
