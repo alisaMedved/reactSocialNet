@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {addPost} from "./../src/redux/state";
+import {addPost, addPostText} from "./../src/redux/state";
 import * as serviceWorker from './serviceWorker';
 
 export const rendEntireTree = (state) => {
-    ReactDOM.render(<App state = {state} addPost={addPost}/>,
+    ReactDOM.render(<App state = {state} addPost={addPost} addPostText = {addPostText}/>,
         document.getElementById('root'));
 };
 
