@@ -1,4 +1,7 @@
-import {rendEntireTree} from "./../render";
+
+let rendEntireTree = () => {
+    console.log('state was changed');
+};
 
 const state = {
     profilePage: {
@@ -69,6 +72,10 @@ export const addMessageText = (textMes) => {
 state.dialogsPage.newMessageText = textMes;
     rendEntireTree(state);
 
+};
+
+export const subscribe =(observer) => {
+    rendEntireTree = observer;
 };
 
 export default state;
