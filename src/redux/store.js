@@ -1,4 +1,4 @@
-
+ // store
 import profileReducer from "./profileReducer";
 import dialogsReducer from "./dialogsReducer";
 
