@@ -1,4 +1,3 @@
-
 const ADD_MESSAGE = "ADD-MESSAGE";
 const ADD_MESSAGE_TEXT = "ADD-MESSAGE-TEXT";
 
@@ -24,17 +23,21 @@ const initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_MESSAGE:
+        case ADD_MESSAGE: {
+            debugger;
             const newMessage = {
                 id: "7",
                 message: state.newMessageText
             };
-            state.messages.push(newMessage);
-            state.newMessageText = "";
-            return state;
-        case ADD_MESSAGE_TEXT:
-           state.newMessageText = action.textMes;
-            return state;
+            const stateCopy = {...state};
+            stateCopy.messages = [...state.messages];
+            stateCopy.messages.push(newMessage);
+            stateCopy.newMessageText = "";
+            return stateCopy; }
+        case ADD_MESSAGE_TEXT: {
+            const stateCopy = {...state};
+            stateCopy.newMessageText = action.textMes;
+            return stateCopy; }
         default:
             return state;
     }
