@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
@@ -10,20 +10,20 @@ import News from './components/News/News';
 import Settings from "./components/Settings/Settings";
 
 
-const App = (props) => {
+const App = () => {
     return (
-        <BrowserRouter>
+
             <div className='app-wrapper'>
                 <Header/>
-                <Navbar dataNavbar={props.state.sidebar}/>
+                <Navbar/>
                 <div className="app-wrapper-content">
+
                     <Route exact path="/dialogs" render={() =>
-                        <DialogsContainer store={props.store}/>}/>
+                        <DialogsContainer />}/>
 
 
                                  <Route path="/profile" render={() =>
-                        <Profile
-                            store={props.store}/>}/>
+                        <Profile />}/>
 
 
 
@@ -32,7 +32,8 @@ const App = (props) => {
                     <Route path="/settings" render={() => <Settings/>}/>
                 </div>
             </div>
-        </BrowserRouter>);
+        );
 };
 
 export default App;
+

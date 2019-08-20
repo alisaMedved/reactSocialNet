@@ -2,8 +2,8 @@ import React from 'react';
 import Friend from "./Friend/Friend";
 import s from "./MyFriends.module.css";
 
-const MyFriends = ({dataFriends}) => {
-    const friendsElements = dataFriends.friends
+const MyFriends = (props) => {
+    const friendsElements = props.dataFriends
         .map((f) => <Friend key={f.id} name={f.name} avatarka={f.avatarkaSRC}/>)
     return (
         <div className={s.MyFriendsBlock}>
