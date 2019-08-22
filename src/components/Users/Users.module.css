@@ -1,0 +1,46 @@
+
+.usersBlock{
+    margin-left: 60px;
+}
+
+.users {
+    padding-left: 30px;
+}
+
+.butMore {
+    margin-left: 300px;
+}
+
+/**  Стили пользователей **/
+
+.ava {
+    width: 50px;
+    height: 55px;
+}
+
+.item {
+    display: flex;
+    align-self: center;
+    margin-bottom: 30px;
+}
+
+.info {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    padding: 5px;
+}
+
+.avaButWrapp {
+    display: flex;
+    flex-direction: column;
+}
+
+.info_item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+

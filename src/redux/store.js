@@ -37,6 +37,14 @@ const store = {
                 {id: "2", name: "Sasha", avatarkaSRC: "https://zabavnik.club/wp-content/uploads/foto_na_avu_1_19111518.jpg" },
                 {id: "3", name: "Sveta", avatarkaSRC: "https://cdn.freelance.ru/img/portfolio/pics/00/37/9B/3644384.jpg?mt=57607de1" },
             ],
+        },
+        usersPage: {
+            users: [
+    {name: "Dmitry K.", status: "I am looking for a Job right now...", place: {country: "Belarus", city: "Minsk"}},
+    {name: "Svetlana D.", status: "I am so pretty", place: {country: "Belarus", city: "Minsk"}},
+    {name: "Sergei S.", status: "I like football!!!", place: {country: "Ukrane", city: "Kiev"}},
+    {name: "Andrew T.", status: "I am free to help you  to create good Video Production", place: {country: "United States", city: "Philadelphia"}}
+            ]
         }
     },
     _callSubscriber() {                       // вызвать подписчика - уведомить подписчика

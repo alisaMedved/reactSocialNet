@@ -3,20 +3,20 @@ const ADD_MESSAGE_TEXT = "ADD-MESSAGE-TEXT";
 
 const initialState = {
     dialogs: [
-        {name: "Dimych", id: '1'},
-        {name: "Andrew", id: '2'},
-        {name: "Sasha", id: '3'},
-        {name: "Sveta", id: '4'},
-        {name: "Valera", id: '5'},
-        {name: "Viktor", id: '6'}
+        {name: "Dimych", id: 1},
+        {name: "Andrew", id: 2},
+        {name: "Sasha", id: 3},
+        {name: "Sveta", id: 4},
+        {name: "Valera", id: 5},
+        {name: "Viktor", id: 6}
     ],
     messages: [
-        {id: '1', message: "Hi"},
-        {id: '2', message: "How is yor it-kra?"},
-        {id: '3', message: "LA"},
-        {id: '4', message: "LA11"},
-        {id: '5', message: "LA23"},
-        {id: '6', message: "LA45"}
+        {id: 1, message: "Hi"},
+        {id: 2, message: "How is yor it-kra?"},
+        {id: 3, message: "LA"},
+        {id: 4, message: "LA11"},
+        {id: 5, message: "LA23"},
+        {id: 6, message: "LA45"}
     ],
     newMessageText: "",
 };
@@ -26,18 +26,14 @@ const dialogsReducer = (state = initialState, action) => {
         case ADD_MESSAGE: {
             debugger;
             const newMessage = {
-                id: "7",
+                id: 7,
                 message: state.newMessageText
             };
-            const stateCopy = {...state};
-            stateCopy.messages = [...state.messages];
-            stateCopy.messages.push(newMessage);
-            stateCopy.newMessageText = "";
-            return stateCopy; }
+            return {...state, messages: [...state.messages, newMessage], newMessageText: ""};
+        }
         case ADD_MESSAGE_TEXT: {
-            const stateCopy = {...state};
-            stateCopy.newMessageText = action.textMes;
-            return stateCopy; }
+            return {...state, newMessageText: action.textMes};
+        }
         default:
             return state;
     }
