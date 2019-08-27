@@ -4,7 +4,7 @@ import React from "react";
 
 const User = (props) => {
 
-    const pagesCount = Math.ceil(props.totalUsersCount/this.props.pageSize);
+    const pagesCount = Math.ceil(props.totalUsersCount/props.pageSize);
     const pages = [];
     for (let i=1; i<=pagesCount; i++) {
         pages.push(i);
@@ -15,11 +15,13 @@ const User = (props) => {
           <div className={s.multiSelectorPage}>
               {pages.map(p => {
                   return <div className={props.currentPage === p && s.selectedPage}
-                              onClick={()=> {this.onPageChanged(p)}}>{p}</div>
+                              onClick={(event)=> {
+                                  props.onPageChanged(p);
+                              }}>{p}</div>
               })}
           </div>
           <h3>Users</h3>
-          { this.props.dataUsers
+          { props.dataUsers
               .map(u =>
                   <div className={s.item} key={u.id}>
                       <div className={s.avaButWrapp}>

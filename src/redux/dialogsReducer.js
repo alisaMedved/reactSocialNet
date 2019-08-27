@@ -24,7 +24,6 @@ const initialState = {
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_MESSAGE: {
-            debugger;
             const newMessage = {
                 id: 7,
                 message: state.newMessageText

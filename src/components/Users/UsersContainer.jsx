@@ -24,6 +24,7 @@ const mapDispatchToProps = (dispatch) => {
            dispatch(setUsersAC(users));
        },
        setCurrentPage: (pageNumber) => {
+           debugger;
            dispatch(setCurrentPageAC(pageNumber));
        },
        setTotalUsersCount: (totalCount) => {
