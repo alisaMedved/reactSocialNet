@@ -43,4 +43,12 @@
     justify-content: space-between;
 }
 
+/** дополнительно **/
 
+.multiSelectorPage {
+    display: flex;
+}
+
+.selectedPage {
+    font-weight: bold;
+}

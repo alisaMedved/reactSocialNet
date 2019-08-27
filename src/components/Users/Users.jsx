@@ -4,16 +4,38 @@ import userPhotoSmall from "../../assets/images/user.png";
 import * as axios from "axios";
 
 class Users extends Component {
-    constructor(props) {
-        super(props);
-        axios.get("https://social-network.samuraijs.com/api/1.0/users")
+
+    componentDidMount() {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`)
             .then(response => {
-                debugger;
                 this.props.setUsers(response.data.items);
             });
     }
+
+    onPageChanged(pageNumber) {
+        this.props.setCurrentPage(pageNumber);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${pageNumber}`)
+            .then(response => {
+                this.props.setUsers(response.data.items);
+                this.props.setTotalUsersCount(response.data.totalCount);
+            });
+    }
+
     render() {
+
+        const pagesCount = Math.ceil(this.props.totalUsersCount/this.props.pageSize);
+        const pages = [];
+        for (let i=1; i<=pagesCount; i++) {
+            pages.push(i);
+        }
+
         return (<div className={s.usersBlock}>
+            <div className={s.multiSelectorPage}>
+                {pages.map(p => {
+                    return <div className={this.props.currentPage === p && s.selectedPage}
+                    onClick={()=> {this.onPageChanged(p)}}>{p}</div>
+                })}
+            </div>
             <h3>Users</h3>
             { this.props.dataUsers
                 .map(u =>
