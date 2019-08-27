@@ -2,7 +2,7 @@ import s from "./Users.module.css";
 import userPhotoSmall from "../../assets/images/user.png";
 import React from "react";
 
-const User = (props) => {
+const Users = (props) => {
 
     const pagesCount = Math.ceil(props.totalUsersCount/props.pageSize);
     const pages = [];
@@ -15,7 +15,7 @@ const User = (props) => {
           <div className={s.multiSelectorPage}>
               {pages.map(p => {
                   return <div className={props.currentPage === p && s.selectedPage}
-                              onClick={(event)=> {
+                              onClick={()=> {
                                   props.onPageChanged(p);
                               }}>{p}</div>
               })}
@@ -49,4 +49,4 @@ const User = (props) => {
   );
 };
 
-export default User;
+export default Users;
