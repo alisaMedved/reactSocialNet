@@ -10,10 +10,7 @@ const mapStateToProps = (state) => {
     }
 };
 
-const mapDispatchToProps = () => {
-    return {};
-};
 
-const MyFriendsContainer = connect(mapStateToProps, mapDispatchToProps)(MyFriends);
+const MyFriendsContainer = connect(mapStateToProps, {})(MyFriends);
 
 export default MyFriendsContainer;

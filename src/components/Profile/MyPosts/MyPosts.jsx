@@ -10,12 +10,12 @@ const MyPosts = (props) => {
     const newPostElement = React.createRef();
 
     const ClickAddPost = () => {
-        props.addPost();
+        props.addNewPost();
     };
 
     const ChangeTextPost = () => {
         let text = newPostElement.current.value;
-        props.addPostText(text);
+        props.onPostChange(text);
     };
 
     return (

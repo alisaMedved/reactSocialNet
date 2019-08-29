@@ -20,12 +20,12 @@ const Dialogs = (props) => {
     const newMessageElement = React.createRef();
 
     const ClickAddMessage = () => {
-      props.addMessage();
+      props.addNewMessage();
     };
 
     const ChangeTextMessage = () => {
         let textMes = newMessageElement.current.value;
-     props.addMessageText(textMes);
+     props.onMessageChange(textMes);
     };
 
     return (
