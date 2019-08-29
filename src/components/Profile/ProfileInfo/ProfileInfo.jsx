@@ -18,9 +18,10 @@ const ProfileInfo = ({userProfile}) => {
                     <img src={userProfile.photos.large ? userProfile.photos.large : userPhotoLarge}
                          className={s.avatarka}/>
                     <div className={s.aboutMe}>
-                      <h3>samurai d new name</h3>
-                        <p>About me:{userProfile.aboutMe}</p>
+                      <h3>{userProfile.fullName}</h3>
+                        <p>About me: {userProfile.aboutMe}</p>
                         <img src={userProfile.lookingForAJob ? NeedToJob : HaveJob} className={s.job}/>
+                        <p>Как я ищу работу: {userProfile.lookingForAJobDescription}</p>
                     </div>
                     </div>
                     <div>
