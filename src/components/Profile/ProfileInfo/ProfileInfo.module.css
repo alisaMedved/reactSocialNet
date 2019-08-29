@@ -1,3 +1,21 @@
 .descriptionBlock {
     padding: 10px;
 }
+
+.AvaAboutMe {
+    display: flex;
+}
+
+.avatarka {
+    width: 175px;
+    margin-right: 45px;
+}
+
+.banner {
+    height: 200px;
+    width: 100%;
+}
+
+.job {
+    width: 100px;
+}

@@ -1,6 +1,8 @@
 import s from "./Users.module.css";
 import userPhotoSmall from "../../assets/images/user.png";
 import React from "react";
+import {NavLink} from 'react-router-dom';
+
 
 const Users = (props) => {
 
@@ -25,8 +27,10 @@ const Users = (props) => {
               .map(u =>
                   <div className={s.item} key={u.id}>
                       <div className={s.avaButWrapp}>
+                          <NavLink to={`/profile/${u.id}`}>
                           <img className={s.ava}
                                src={u.photos.small !== null ? u.photos.small : userPhotoSmall}/>
+                          </NavLink>
                           {u.followed ?
                               <button onClick={() => props.unfollow(u.id)} className={s.but}>Unfollow</button>
                               : <button onClick={() => props.follow(u.id)}  className={s.but}>Follow</button>}
@@ -35,7 +39,7 @@ const Users = (props) => {
                       <div className={s.info}>
                           <div className={s.info_item}>
                               <p>{u.name}</p>
-                              <p>{"u.place.country"}</p>
+                              <p>{"u.place.country" + "   " + u.id}</p>
                           </div>
                           <div className={s.info_item}>
                               <p>{u.status}</p>
