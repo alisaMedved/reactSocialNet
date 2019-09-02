@@ -12,7 +12,7 @@ class HeaderContainer extends Component {
         })
             .then(response => {
                 if (response.data.resultCode === 0) {
-                    const {id, login, email} = response.data.data;
+                    const {id, email, login} = response.data.data;
                     this.props.toggleIsFetching(false);
                     this.props.setAuthUserData(id, email, login);
                 }
@@ -20,22 +20,24 @@ class HeaderContainer extends Component {
     }
 
     render() {
-   return (<>{this.props.isFetching ? <Preloader /> : <Header login={this.props.id}
-                                                id={this.props.id}
-                                                email={this.props.email}
-                                                isAuth={this.props.isAuth}/>}</>);
-
-}
+        return (<>
+            {this.props.isFetching ? <Preloader/>
+                : <Header login={this.props.login}
+                          id={this.props.id}
+                          email={this.props.email}
+                          isAuth={this.props.isAuth}/>}
+        </>);
+    }
 }
 
 const mapStateToProps = (state) => {
     return {
-        id: state.id,
-        email: state.email,
-        login: state.login,
-        isAuth: state.isAuth};
+        id: state.auth.id,
+        email: state.auth.email,
+        login: state.auth.login,
+        isAuth: state.auth.isAuth
+    };
 };
-
 export default connect(mapStateToProps, {
     setAuthUserData,
     toggleIsFetching
