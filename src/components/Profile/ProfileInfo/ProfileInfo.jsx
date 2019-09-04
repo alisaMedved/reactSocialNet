@@ -5,6 +5,7 @@ import Contacts from "./Contacts/Contacts";
 import HaveJob from "./../../../assets/images/HaveJob.jpg";
 import NeedToJob from "./../../../assets/images/NeedToJob.jpg";
 import userPhotoLarge from "./../../../assets/images/user.png";
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = ({userProfile}) => {
     return (
@@ -22,6 +23,7 @@ const ProfileInfo = ({userProfile}) => {
                         <p>About me: {userProfile.aboutMe}</p>
                         <img src={userProfile.lookingForAJob ? NeedToJob : HaveJob} className={s.job}/>
                         <p>Как я ищу работу: {userProfile.lookingForAJobDescription}</p>
+                        <ProfileStatus status={"Hello, World!"}/>
                     </div>
                     </div>
                     <div>
