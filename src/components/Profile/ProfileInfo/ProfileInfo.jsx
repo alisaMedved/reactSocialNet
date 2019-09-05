@@ -7,10 +7,12 @@ import NeedToJob from "./../../../assets/images/NeedToJob.jpg";
 import userPhotoLarge from "./../../../assets/images/user.png";
 import ProfileStatus from "./ProfileStatus";
 
-const ProfileInfo = ({userProfile}) => {
+const ProfileInfo = (props) => {
+    const {userProfile} = props;
     return (
         <>
-            {!userProfile ? <Preloader/> : <div>
+            {
+                !userProfile ? <Preloader/> : <div>
                 <div>
                     <img className={s.banner} src='https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350' />
                 </div>
@@ -22,8 +24,10 @@ const ProfileInfo = ({userProfile}) => {
                       <h3>{userProfile.fullName}</h3>
                         <p>About me: {userProfile.aboutMe}</p>
                         <img src={userProfile.lookingForAJob ? NeedToJob : HaveJob} className={s.job}/>
-                        <p>Как я ищу работу: {userProfile.lookingForAJobDescription}</p>
-                        <ProfileStatus status={"Hello, World!"}/>
+                        <p>Как я ищу работу:
+                            {userProfile.lookingForAJobDescription}</p>
+
+                        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
                     </div>
                     </div>
                     <div>
@@ -36,7 +40,7 @@ const ProfileInfo = ({userProfile}) => {
                         }
                     </div>
                 </div>
-            </div>}
+            </div> }
             </>
     );
 };
