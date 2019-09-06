@@ -16,7 +16,15 @@ export const usersAPI = {
 
 export const authAPI = {
     getAuthMe() {
-       return instance.get("auth/me", {withCredentials: true})
+       return instance.get("auth/me")
+            .then(response => response.data);
+    },
+    postAuthLogin(email, password, rememberMe) {
+        return instance.post("auth/login", {email, password, rememberMe})
+            .then(response => response.data);
+    },
+    posstAuthLogout() {
+        return instance.post("auth/logout")
             .then(response => response.data);
     }
 };
@@ -46,6 +54,8 @@ export const followAPI = {
             .then(response => response.data);
     }
 };
+
+
 
 
 
