@@ -1,5 +1,4 @@
-const ADD_MESSAGE = "ADD-MESSAGE";
-const ADD_MESSAGE_TEXT = "ADD-MESSAGE-TEXT";
+const ADD_NEW_MESSAGE = "ADD-NEW-MESSAGE";
 
 const initialState = {
     dialogs: [
@@ -11,35 +10,28 @@ const initialState = {
         {name: "Viktor", id: 6}
     ],
     messages: [
-        {id: 1, message: "Hi"},
-        {id: 2, message: "How is yor it-kra?"},
-        {id: 3, message: "LA"},
-        {id: 4, message: "LA11"},
-        {id: 5, message: "LA23"},
-        {id: 6, message: "LA45"}
-    ],
-    newMessageText: "",
+        {id: 1, messageBody: "Hi"},
+        {id: 2, messageBody: "How is yor it-kra?"},
+        {id: 3, messageBody: "LA"},
+        {id: 4, messageBody: "LA11"},
+        {id: 5, messageBody: "LA23"},
+        {id: 6, messageBody: "LA45"}
+    ]
 };
 
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_MESSAGE: {
-            const newMessage = {
-                id: 7,
-                message: state.newMessageText
-            };
-            return {...state, messages: [...state.messages, newMessage], newMessageText: ""};
-        }
-        case ADD_MESSAGE_TEXT: {
-            return {...state, newMessageText: action.textMes};
+        case ADD_NEW_MESSAGE: {
+            return {...state, messages: [...state.messages, {id: 7, messageBody: action.newMessage}]};
         }
         default:
             return state;
     }
 };
 
-export const addNewMessage = () => ({type: ADD_MESSAGE});
 
-export const onMessageChange = (textMes) => ({type: ADD_MESSAGE_TEXT, textMes: textMes});
+
+export const addNewMessage = (newMessage) => ({type: ADD_NEW_MESSAGE, newMessage});
+
 
 export default dialogsReducer;

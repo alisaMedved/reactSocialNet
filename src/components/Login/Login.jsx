@@ -5,7 +5,6 @@ import {connect} from "react-redux";
 import {postMyLogin} from "../../redux/authReducer";
 
 const LoginForm = (props) => {
-    console.log(props);
     return (
             <form onSubmit={props.handleSubmit}>
                 <div><Field component={"input"} name={"login"} placeholder={"login"}/></div>
