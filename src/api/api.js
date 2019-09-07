@@ -23,8 +23,8 @@ export const authAPI = {
         return instance.post("auth/login", {email, password, rememberMe})
             .then(response => response.data);
     },
-    posstAuthLogout() {
-        return instance.post("auth/logout")
+    postAuthLogout() {
+        return instance.delete("auth/login")
             .then(response => response.data);
     }
 };
