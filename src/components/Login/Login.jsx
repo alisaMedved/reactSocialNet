@@ -15,6 +15,7 @@ const LoginForm = (props) => {
                 <div><Field component={Input} validate={[requiredField]} name={"password"}
                             placeholder={"Password"} type={"password"}/></div>
                 <div><Field component={Input} name={"rememberMe"} type={"checkbox"}/>Remember me</div>
+                {props.error && <div className={s.formSummaryError}>{props.error}</div>}
                 <div>
                     <button>Login или Войти</button>
                 </div>

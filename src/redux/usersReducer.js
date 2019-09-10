@@ -70,8 +70,7 @@ export const setTotalUsersCount =(totalUsersCount) => ({type: SET_TOTAL_USERS_CO
 export const toggleIsFetching = (isFetchingData) => ({type: TOGGLE_IS_FETCHING, isFetchingData});
 export const toggleFollowingInProcess = (isFetching, userId) => ({type: TOGGLE_FOLLOWING_IN_PROCESS, isFetching, userId});
 
-export const getUsers = (pageSize, currentPage) => {
-    return (dispatch) => {
+export const getUsers = (pageSize, currentPage) => (dispatch) => {
          dispatch(toggleIsFetching(true));
         usersAPI.getUsers(pageSize, currentPage)
             .then(data => {
@@ -79,11 +78,9 @@ export const getUsers = (pageSize, currentPage) => {
                 dispatch(setUsers(data.items));
                 dispatch(setTotalUsersCount(data.totalCount));
             });
-    };
 };
 
-export const followUser = (userId) => {
-    return (dispatch) => {
+export const followUser = (userId) => (dispatch) => {
         dispatch(toggleFollowingInProcess(true, userId));
         followAPI.postUserFollowing(userId)
             .then(data => {
@@ -92,11 +89,9 @@ export const followUser = (userId) => {
                 }
                 dispatch(toggleFollowingInProcess(false, userId));
             });
-    }
 };
 
-export const unfollowUser = (userId) => {
-  return (dispatch) => {
+export const unfollowUser = (userId) => (dispatch) => {
       dispatch(toggleFollowingInProcess(true, userId));
       followAPI.deleteUserFollowing(userId)
           .then(data => {
@@ -105,7 +100,6 @@ export const unfollowUser = (userId) => {
               }
               dispatch(toggleFollowingInProcess(false, userId));
           });
-  }
 };
 
 export default usersReducer;

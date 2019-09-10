@@ -1,8 +1,8 @@
 import {authAPI} from "../api/api";
+import {stopSubmit} from "redux-form";
 
 const TOGGLE_IS_FETCHING = "TOGGLE-IS-FETCHING";
 const SET_AUTH_USER_DATA = "SET-AUTH-USER-DATA";
-const DELETE_AUTH_USER_DATA = "DELETE-AUTH-USER-DATA";
 
 
 const initialState = {
@@ -28,35 +28,31 @@ const authReducer = (state=initialState, action) => {
     }
 };
 
-export const getMyAuthorization = () => {
-    return (dispatch) => {
-        dispatch(toggleIsFetching(true));
-        authAPI.getAuthMe()
+export const getMyAuthorization = () => (dispatch) => {
+        // dispatch(toggleIsFetching(true));
+        return authAPI.getAuthMe()
             .then(data => {
                 if (data.resultCode === 0) {
                     const {id, email, login} = data.data;
-                   dispatch(toggleIsFetching(false));
+                   // dispatch(toggleIsFetching(false));
                     dispatch(setAuthUserData(id, email, login, true));
                 }
             });
-    }
-};
+    };
 
-export const postMyLogin = (email, password, rememberMe) => {
-    return (dispatch) => {
+export const postMyLogin = (email, password, rememberMe) => (dispatch) => {
         authAPI.postAuthLogin(email, password, rememberMe)
             .then(data => {
                 if (data.resultCode === 0) {
                     dispatch(getMyAuthorization());
                 } else {
-                    console.log(data.messages[0]);
+                    dispatch(stopSubmit("login", {_error: data.messages[0]}));
+
                 }
             });
-    }
 };
 
-export const outMyLogin = () => {
-    return (dispatch) => {
+export const outMyLogin = () => (dispatch) => {
         authAPI.postAuthLogout()
             .then(data => {
                 debugger;
@@ -66,7 +62,6 @@ export const outMyLogin = () => {
                     console.log(data);
                 }
             });
-    }
 };
 
 

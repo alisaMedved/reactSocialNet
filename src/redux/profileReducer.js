@@ -36,31 +36,25 @@ export const addNewPost = (newPost) => ({type: ADD_NEW_POST, newPost});
 export const setUserProfile = (userProfile) => ({type: SET_USER_PROFILE, userProfile});
 export const setStatus = (status) => ({type: SET_STATUS, status});
 
-export const getProfile = (userId) => {
-    return (dispatch) => {
+export const getProfile = (userId) => (dispatch) => {
         profileAPI.getUserProfile(userId)
             .then(data => {
                 dispatch(setUserProfile(data));
             });
-    }
 };
-export const getStatus = (userId) => {
-    return (dispatch) => {
+export const getStatus = (userId) => (dispatch) => {
         profileAPI.getUserStatus(userId)
             .then(data => {
                 dispatch(setStatus(data));
             });
-    }
 };
-export const updateStatus = (status) => {
-    return (dispatch) => {
+export const updateStatus = (status) => (dispatch) => {
        profileAPI.putUserStatus(status)
            .then(data => {
                if (data.resultCode === 0) {
                    dispatch(setStatus(status));
                }
            })
-    }
 };
 
 
