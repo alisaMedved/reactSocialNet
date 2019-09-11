@@ -5,7 +5,8 @@ import Contacts from "./Contacts/Contacts";
 import HaveJob from "./../../../assets/images/HaveJob.jpg";
 import NeedToJob from "./../../../assets/images/NeedToJob.jpg";
 import userPhotoLarge from "./../../../assets/images/user.png";
-import ProfileStatus from "./ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+
 
 const ProfileInfo = (props) => {
     const {userProfile} = props;
@@ -27,7 +28,7 @@ const ProfileInfo = (props) => {
                         <p>Как я ищу работу:
                             {userProfile.lookingForAJobDescription}</p>
 
-                        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+                        <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
                     </div>
                     </div>
                     <div>
