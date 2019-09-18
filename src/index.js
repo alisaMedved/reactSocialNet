@@ -1,20 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from './serviceWorker';
-import store from "./redux/reduxStore";
-import App from "./App";
-// import storeContext from "./../src/storeContext";
-import {Provider} from  "react-redux";
-import {BrowserRouter} from "react-router-dom";
+import SocialNetApp from "./App";
+
+
 
 
 
     ReactDOM.render(
-        <BrowserRouter>
-        <Provider store={store}>
-        <App />
-        </Provider>
-        </BrowserRouter>,
+        <SocialNetApp />,
         document.getElementById('root'));
 
 
