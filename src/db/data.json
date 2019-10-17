@@ -1,0 +1,91 @@
+[
+  {
+    "id": "357",
+    "name": "АЛТ (GPT) Аланинаминотрансфераза",
+    "shortName": "АЛТ",
+    "code": "1003599",
+    "count": "22",
+    "organizationsList": [
+      {
+        "fullName": "ЦГКБ 6, Екатеринбург",
+        "resCount": "12"
+      },
+      {
+        "fullName": "ЦГБ7, Екатеринбург",
+        "resCount": "2"
+      },
+      {
+        "fullName": "ЦГКБ 6, Екатеринбург",
+        "resCount": "8"
+      }
+    ]
+  },
+  {
+    "id": "339",
+    "name": "Креатинин",
+    "shortName": "",
+    "code": "1006477",
+    "count": "12",
+    "organizationsList": [
+      {
+        "fullName": "ДГП13, Екатеринбург",
+        "resCount": "6"
+      },
+      {
+        "fullName": "ЦГБ7, Екатеринбург",
+        "resCount": "6"
+      }
+    ]
+  },
+  {
+    "id": "337",
+    "name": "Общий белок (общий протеин)",
+    "shortName": "",
+    "code": "1002880",
+    "count": "35",
+    "organizationsList": [
+      {
+        "fullName": "ЦГКБ 6, Екатеринбург",
+        "resCount": "20"
+      },
+      {
+        "fullName": "ЦГБ7, Екатеринбург",
+        "resCount": "10"
+      },
+      {
+        "fullName": "ЦГКБ 6, Екатеринбург",
+        "resCount": "5"
+      }
+    ]
+  },
+  {
+    "id": "150",
+    "name": "Мышечные волокна",
+    "shortName": "",
+    "code": "",
+    "count": "5",
+    "organizationsList": [
+      {
+        "fullName": "ЦГКБ 6, Екатеринбург",
+        "resCount": "2"
+      },
+      {
+        "fullName": "ЦГБ7, Екатеринбург",
+        "resCount": "1"
+      }
+    ]
+  },
+  {
+    "id": "619",
+    "name": "Яйца глист",
+    "shortName": "",
+    "code": "",
+    "count": "5",
+    "organizationsList": [
+      {
+        "fullName": "ЦГКБ 6, Екатеринбург",
+        "resCount": "5"
+      }
+    ]
+  }
+]
