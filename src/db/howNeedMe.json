@@ -1,0 +1,42 @@
+
+// Один запрос
+
+// Request Method: GET
+// Response:
+
+[                                                         // массив организаций, входящих в данный домен
+  {
+    "businessName": "ЦГБ7, Екатеринбург",                 // человеческое название организации
+    "icmName": "LIS",                                     // условное название организации (понятное только разработчикам)
+    "icmid": "258222bc-645b-482d-94e9-a1e37f693328",      // уникальный id организации
+    "countPatients": 100,                                 // тип number - количество пациентов, обслуживавшихся в организации
+    "countSpecimens": 2000,                               // тип number - количество материалов, взятых в организации
+    "countServices": 4000,                                // тип number - количество услуг, выполненных в организации
+    "countMeasurements": 645                              // тип number - количество измерений, выполненных в организации
+  },
+  {
+    "businessName": "МИС",
+    "icmName": "HIS",
+    "icmid": "c767b5f0-897b-4133-84df-eef50ee754d7",
+    "countPatients": 560,
+    "countSpecimens": 2930,
+    "countServices": 9360,
+    "countMeasurements": 875
+  },
+  {
+    "businessName": "ЦГКБ 6, Екатеринбург",
+    "icmName": "LIS",
+    "icmid": "15dfd682-df0c-49bf-879c-9602cf3dfe7b",
+    "countPatients": 77,
+    "countSpecimens": 898,
+    "countServices": 860,
+    "countMeasurements": 63345
+  }
+]
+
+// RequestPayload:
+
+{
+  "from": 1571765475120,                               // тип number даты начала (from)
+  "to": 1572370274723,                                // и конца (to) указанного периода времени
+}

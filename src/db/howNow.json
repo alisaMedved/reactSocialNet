@@ -1,0 +1,188 @@
+
+/** Общее количество выполняемых запросов:
+один общий запрос на всю таблицу (первый запрос)
++ [ 4 * количество организации, входящих в данный домен ]
+**/
+
+// запрос первый (общий на всю таблицу)
+
+// Request Method: GET
+// Request URL: http://localhost:8081/api/bregis/ui/user/domains
+// Response:
+
+[                                                       // массив организаций, входящих в данный домен
+  {
+    "apiKey": "13fbcd1e-1168-4fc1-b17f-7fdb01939035",
+    "attributes": [
+      [
+        "o",
+        "LIS"
+      ],
+      [
+        "dc",
+        "A0159"
+      ],
+      [
+        "dc",
+        "LCN001"
+      ],
+      [
+        "dc",
+        "clients"
+      ],
+      [
+        "dc",
+        "bregis"
+      ],
+      [
+        "dc",
+        "ru"
+      ]
+    ],
+    "businessName": "ЦГБ7, Екатеринбург",                         // человеческое название организации
+    "dn": "o=LIS,dc=A0159,dc=LCN001,dc=clients,dc=bregis,dc=ru",
+    "icmName": "LIS",                                             // условное название организации (понятное только разработчикам)
+    "icmid": "258222bc-645b-482d-94e9-a1e37f693328"               // уникальный id для каждой организации
+  },
+  {
+    "apiKey": "be878f1e-50a3-4bf8-b94b-6d2cffc29718",
+    "attributes": [
+      [
+        "o",
+        "HIS"
+      ],
+      [
+        "dc",
+        "A0165"
+      ],
+      [
+        "dc",
+        "LCN001"
+      ],
+      [
+        "dc",
+        "clients"
+      ],
+      [
+        "dc",
+        "bregis"
+      ],
+      [
+        "dc",
+        "ru"
+      ]
+    ],
+    "businessName": "МИС",
+    "dn": "o=HIS,dc=A0165,dc=LCN001,dc=clients,dc=bregis,dc=ru",
+    "icmName": "HIS",
+    "icmid": "c767b5f0-897b-4133-84df-eef50ee754d7"
+  },
+  {
+    "apiKey": "1ca79dac-a81f-4471-b06d-b6f96f403d04",
+    "attributes": [
+      [
+        "o",
+        "LIS"
+      ],
+      [
+        "dc",
+        "A0165"
+      ],
+      [
+        "dc",
+        "LCN001"
+      ],
+      [
+        "dc",
+        "clients"
+      ],
+      [
+        "dc",
+        "bregis"
+      ],
+      [
+        "dc",
+        "ru"
+      ]
+    ],
+    "businessName": "ЦГКБ 6, Екатеринбург",
+    "dn": "o=LIS,dc=A0165,dc=LCN001,dc=clients,dc=bregis,dc=ru",
+    "icmName": "LIS",
+    "icmid": "15dfd682-df0c-49bf-879c-9602cf3dfe7b"
+  }
+]
+
+// Запросы, которые мы отправляем для каждой организации данного домена
+
+// Запрос 2.1 (запрос кол-ва пациентов для каждой организации)
+
+// Request Method: POST
+// Request URL: http://localhost:8081/api/bregis/ui/manager/observations/statistic/patients
+// Response:
+
+0                           // тип number - количество пациентов, обслуживавшихся в данной
+                            // организации за данный период времени
+
+// RequestPayload запроса 2.1
+
+{
+  "from": 1571765475120,                               // тип number даты начала (from)
+  "to": 1572370274723,                                // и конца (to) указанного периода времени
+  "icmid": "258222bc-645b-482d-94e9-a1e37f693328"     // уникальный id данной организации
+}
+
+// Запрос 2.2 (запрос кол-ва материалов для каждой организации)
+
+// Request Method: POST
+// Request URL: http://localhost:8081/api/bregis/ui/manager/observations/statistic/specimens
+// Response:
+
+0                           // тип number - количество материалов, взятых в данной
+                            // организации за данный период времени
+
+// RequestPayload запроса 2.2
+
+{
+  "from": 1571765475120,                               // тип number даты начала (from)
+  "to": 1572370274723,                                // и конца (to) указанного периода времени
+  "icmid": "258222bc-645b-482d-94e9-a1e37f693328"     // уникальный id данной организации
+}
+
+// Запрос 2.3 (запрос кол-ва услуг для каждой организации)
+
+// Request Method: POST
+// Request URL: http://localhost:8081/api/bregis/ui/manager/observations/statistic/services
+// Response:
+
+0                           // тип number - количество услуг, выполненных в данной
+                            // организации за данный период времени
+
+// RequestPayload запроса 2.3
+
+{
+  "from": 1571765475120,                               // тип number даты начала (from)
+  "to": 1572370274723,                                // и конца (to) указанного периода времени
+  "icmid": "258222bc-645b-482d-94e9-a1e37f693328"     // уникальный id данной организации
+}
+
+// Запрос 2.4 (запрос кол-ва измерений для каждой организации)
+
+// Request Method: POST
+// Request URL: http://localhost:8081/api/bregis/ui/manager/observations/statistic/measurements
+// Response:
+
+0                           // тип number - количество измерений, выполненных в данной
+                            // организации за данный период времени
+
+// RequestPayload запроса 2.4
+
+{
+  "from": 1571765475120,                               // тип number даты начала (from)
+  "to": 1572370274723,                                // и конца (to) указанного периода времени
+  "icmid": "258222bc-645b-482d-94e9-a1e37f693328"     // уникальный id данной организации
+}
+
+
+
+
+
